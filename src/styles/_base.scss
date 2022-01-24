@@ -1,0 +1,45 @@
+@use "./variables";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap');
+
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: variables.$color-gray--light;
+  display: grid;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.5rem;
+  place-content: center;
+}
+
+.loading {
+  overflow-x: hidden;
+
+  &::before {
+    background-color: variables.$color-blue--light; 
+    border-radius: 1rem;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+  }
+
+  &::after {
+    animation: moveLine .8s infinite ease;
+    background-color: #639ffa;
+    border-radius: 1rem;
+    content: "";
+    filter: blur(5px);
+    height: 100%;
+    left: -4rem;
+    position: absolute;
+    top: 0;
+    width: 5rem;
+    z-index: 4;
+  }
+}
