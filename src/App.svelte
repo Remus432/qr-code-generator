@@ -23,12 +23,7 @@
 <main>
   <Particles options="{particlesConfig}" />
   <SearchBar 
-    bind:qrImg={qr.img}
-    bind:pageScreenshot={qr.page.img}
-    bind:pageDescription={qr.page.descr}
-    bind:pageHeadline={qr.page.headline}
-    bind:pageTitle={qr.page.title}
-    bind:isLoading={qr.isLoading} />
+    bind:infoState={qr} />
   <Card bind:qr={qr} />
 </main>
 

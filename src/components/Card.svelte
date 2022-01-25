@@ -18,11 +18,11 @@
   <div class="overlay"></div>
   <div class={`qr-card__wrapper ${qr.img !== "" ? "default" : ""} ${qr.isLoading ? "loading" : ""}`}>
     <img src={qr.img !== "" ? qr.img : QRImg} alt="QR Code" class="qr-card__code">
-    <img class="screenshot" src="data:image/png;base64,{qr.page.img}" alt="" />
+    <img class="screenshot" src="data:image/png;base64,{qr.page.screenshot}" alt="" />
   </div>
   <div class="qr-card__text">
     <h1 class={`qr-card__headline ${qr.isLoading ? "loading" : ""}`}>{qr.page.title}</h1>
-    <p class={`qr-card__description ${qr.isLoading ? "loading" : ""}`}>{qr.page.descr ? qr.page.descr : qr.page.headline}</p>
+    <p class={`qr-card__description ${qr.isLoading ? "loading" : ""}`}>{qr.page.description ? qr.page.description : qr.page.headline}</p>
   </div>
 </article>
 

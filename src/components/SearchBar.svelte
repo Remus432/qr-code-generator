@@ -1,68 +1,34 @@
 <script lang="ts">
-  export let isLoading
-  export let pageScreenshot
-  export let pageDescription 
-  export let pageHeadline
-  export let pageTitle
-  export let qrImg
+  export let infoState
 
   let isEmpty
   let urlVal
-  let httpPattern = ""
 
+  // Graphic Assets
   import QRCodeIcon from "../assets/images/qr-code-icon.png"
+  // Utils
+  import { retrieveInfoObj } from "../ui/ui.actions"
 
-  export const retrievePageInfo = async () => {
-    
-    const res = await fetch("http://localhost:3001/data")
-    const info = await res.json()
-
-    $: pageScreenshot = info[0].pageScreenshot
-    $: pageDescription = info[0].pageDescription
-    $: pageHeadline = info[0].pageHeadline
-    $: pageTitle = info[0].pageTitle
-
-    setTimeout(() => { 
-      $: isLoading = false
-    }, 500)
-    
-  }
-
-  export const sendURL = async (url) => {
-    $: isLoading = true
-
-    const response = await fetch("http://localhost:3001/data", { 
-      method: "POST", 
-      headers: { 
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-      }, 
-      body: JSON.stringify({ url })
-    })
-
-    await retrievePageInfo()
-  }
-
-
-  export const generateCode = async (e: any) => {
+  export const validateForm = async (e) => {
     e.preventDefault()
 
     if (urlVal) {
       $: isEmpty = false
 
-      !urlVal.includes("https://") ? httpPattern = "https://" : httpPattern = ""
+      $: infoState = {...infoState, isLoading: true}
 
-      await sendURL(`${httpPattern}${urlVal}`)
-      $: qrImg = `https://api.qrserver.com/v1/create-qr-code/?data=${httpPattern}${urlVal}&size=200x200&bgcolor=2C7DFA&color=fff&format=svg`
+      $: infoState = await retrieveInfoObj(urlVal)
+
+      setTimeout(() => {
+        $: infoState = {...infoState, isLoading: false}
+      }, 500)
     } else {
       $: isEmpty = true
     }
-    
-  }
+  } 
 </script>
 
-<form on:submit={generateCode} class="url-form">
+<form on:submit={validateForm} class="url-form">
   <input class={`url-form__input ${isEmpty ? "empty" : ""}`} type="text" bind:value={urlVal} placeholder="Add URL for QR code generation">
   {#if isEmpty}
     <span class="url-form__err">Please add a website</span>
@@ -90,7 +56,6 @@
       font-weight: 500;
       flex: 1;
       padding: 1.2rem;
-      // margin-right: 1rem;
 
       &.empty {
         position: relative;
