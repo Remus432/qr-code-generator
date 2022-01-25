@@ -5,8 +5,7 @@ export const scrapPageInfo: IScrapPageInfo = async () => {
     method: "GET",
     headers: {
       "Accept": "application/json",
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
+      "Content-Type": "application/json"
     }
   })
   const info = await res.json()
@@ -24,8 +23,7 @@ export const sendURL: ISendURL = async (url) => {
     method: "POST", 
     headers: { 
       "Accept": "application/json",
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
+      "Content-Type": "application/json"
     }, 
     body: JSON.stringify({ url })
   })
