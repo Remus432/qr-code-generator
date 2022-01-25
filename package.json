@@ -22,6 +22,7 @@
     "vite": "^2.7.2"
   },
   "dependencies": {
+    "gsap": "^3.9.1",
     "svelte-particles": "^1.22.0",
     "vanilla-tilt": "^1.7.2"
   }

@@ -15,14 +15,15 @@
 </script>
 
 <article class="qr-card">
+  <div class="overlay"></div>
   <div class={`qr-card__wrapper ${qr.img !== "" ? "default" : ""} ${qr.isLoading ? "loading" : ""}`}>
     <img src={qr.img !== "" ? qr.img : QRImg} alt="QR Code" class="qr-card__code">
+    <img class="screenshot" src="data:image/png;base64,{qr.page.img}" alt="" />
   </div>
   <div class="qr-card__text">
     <h1 class={`qr-card__headline ${qr.isLoading ? "loading" : ""}`}>{qr.page.title}</h1>
     <p class={`qr-card__description ${qr.isLoading ? "loading" : ""}`}>{qr.page.descr ? qr.page.descr : qr.page.headline}</p>
   </div>
-  <img class="screenshot" src="data:image/png;base64,{qr.page.img}" alt="" />
 </article>
 
 <style lang="scss">
@@ -30,9 +31,16 @@
   @use "../styles/keyframes" as *;
 
   .screenshot {
-    width: 100%;
+    border-radius: 1rem;
     height: 100%;
-    display: none;
+    left: 0rem;
+    position: absolute;
+    transform: scale(1.2);
+    transition: all .6s ease-in;
+    top: 0rem;
+    opacity: 0;
+    mix-blend-mode: multiply;
+    width: 100%;
   }
 
   .qr-card {
@@ -57,10 +65,14 @@
       background-repeat: no-repeat;
       box-shadow: 0 1rem 1.5rem rgba(variables.$color-blue--light, 0);
       border-radius: 1rem;
+      cursor: pointer;
       position: relative;
       text-align: center;
       transition: box-shadow .6s ease;
+      overflow: hidden;
       line-height: 0;
+
+      &:hover .screenshot { opacity: 1; transform: scale(1); }
 
       &.default {
         padding: calc(variables.$spacing-xl + 5vh);
