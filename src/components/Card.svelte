@@ -14,15 +14,25 @@
   })
 </script>
 
-<article class="qr-card">
+<article class="qr-card" tabindex="0" aria-label="Card Showing Preview of Website You've Added">
   <div class="overlay"></div>
-  <div class={`qr-card__wrapper ${qr.img !== "" ? "default" : ""} ${qr.isLoading ? "loading" : ""}`}>
+  <div tabindex="0" class={`qr-card__wrapper ${qr.img !== "" ? "default" : ""} ${qr.isLoading ? "loading" : ""}`}>
     <img src={qr.img !== "" ? qr.img : QRImg} alt="QR Code" class="qr-card__code">
     <img class="screenshot" src="data:image/png;base64,{qr.page.screenshot}" alt="" />
   </div>
   <div class="qr-card__text">
-    <h1 class={`qr-card__headline ${qr.isLoading ? "loading" : ""}`}>{qr.page.title}</h1>
-    <p class={`qr-card__description ${qr.isLoading ? "loading" : ""}`}>{qr.page.description ? qr.page.description : qr.page.headline}</p>
+    <h1 
+      tabindex="0" 
+      aria-label="Page Title Of The Website You've Added" 
+      class={`qr-card__headline ${qr.isLoading ? "loading" : ""}`}>
+        {qr.page.title}
+    </h1>
+    <p 
+      tabindex="0" 
+      aria-label="Page Description Of The Website You've Added"
+      class={`qr-card__description ${qr.isLoading ? "loading" : ""}`}>
+        {qr.page.description ? qr.page.description : qr.page.headline}
+    </p>
   </div>
 </article>
 
@@ -54,6 +64,7 @@
     transform-style: preserve-3d;
     width: clamp(32rem, 50vw, 40rem);
 
+    &:focus { outline: 2px solid darken(variables.$color-blue--light, 5%); }
     &:hover &__wrapper { box-shadow: 0 1rem 1.5rem rgba(variables.$color-blue--light, .2); }
 
     &__wrapper {
@@ -69,6 +80,7 @@
       overflow: hidden;
       line-height: 0;
 
+      &:focus { outline: 2px solid darken(variables.$color-blue--light, 5%); }
       &:hover .screenshot { opacity: 1; transform: scale(1); }
 
       &.default {

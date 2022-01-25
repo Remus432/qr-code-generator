@@ -1,7 +1,7 @@
 import type { IGenerateCode, ISendURL, IScrapPageInfo } from "./ui.interfaces"
 
 export const scrapPageInfo: IScrapPageInfo = async () => {
-  const res = await fetch("http://localhost:3001/data")
+  const res = await fetch("https://node-scrapper-qr.herokuapp.com/data")
   const info = await res.json()
 
   return {
@@ -13,7 +13,7 @@ export const scrapPageInfo: IScrapPageInfo = async () => {
 }
 
 export const sendURL: ISendURL = async (url) => {
-  await fetch("http://localhost:3001/data", { 
+  await fetch("https://node-scrapper-qr.herokuapp.com/data", { 
     method: "POST", 
     headers: { 
       "Accept": "application/json",

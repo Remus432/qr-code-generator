@@ -62,6 +62,8 @@
         outline: 2px solid #e74c3c;
       }
 
+      &:focus { outline: 2px solid variables.$color-blue--light; }
+
       &::placeholder {
         color: variables.$color-blue--grayish;
       }
@@ -84,6 +86,8 @@
       justify-content: center;
       padding: variables.$spacing-xs 0;
       margin-top: variables.$spacing-xs;
+
+      &:focus { outline: 2px solid darken(variables.$color-blue--light, 5%); }
 
       &:hover {
         background-color: variables.$color-blue--light-hover;
