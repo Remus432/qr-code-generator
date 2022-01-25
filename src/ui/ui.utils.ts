@@ -1,7 +1,14 @@
 import type { IGenerateCode, ISendURL, IScrapPageInfo } from "./ui.interfaces"
 
 export const scrapPageInfo: IScrapPageInfo = async () => {
-  const res = await fetch("https://node-scrapper-qr.herokuapp.com/data")
+  const res = await fetch("https://node-scrapper-qr.herokuapp.com/data", {
+    method: "GET",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    }
+  })
   const info = await res.json()
 
   return {
