@@ -56,9 +56,6 @@
 
     &:hover &__wrapper { box-shadow: 0 1rem 1.5rem rgba(variables.$color-blue--light, .2); }
 
-    &:hover &__wrapper,
-    &:hover &__text { transform: translateZ(5rem); }
-
     &__wrapper {
       background-image: url("../assets/images/oval-bg.png");
       background-size: cover;

@@ -12,11 +12,6 @@
 
   import QRCodeIcon from "../assets/images/qr-code-icon.png"
 
-  export const addUrl = async (e: any) => {
-    const url = await navigator.clipboard.readText()
-    $: urlVal = url
-  }
-
   export const retrievePageInfo = async () => {
     
     const res = await fetch("http://localhost:3001/data")
@@ -68,7 +63,7 @@
 </script>
 
 <form on:submit={generateCode} class="url-form">
-  <input on:mouseover={addUrl} class={`url-form__input ${isEmpty ? "empty" : ""}`} type="text" bind:value={urlVal} placeholder="Add URL for QR code generation">
+  <input class={`url-form__input ${isEmpty ? "empty" : ""}`} type="text" bind:value={urlVal} placeholder="Add URL for QR code generation">
   {#if isEmpty}
     <span class="url-form__err">Please add a website</span>
   {/if}
