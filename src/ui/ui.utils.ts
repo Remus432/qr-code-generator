@@ -21,10 +21,12 @@ export const scrapPageInfo: IScrapPageInfo = async () => {
 
 export const sendURL: ISendURL = async (url) => {
   await fetch("https://node-scrapper-qr.herokuapp.com/data", { 
-    method: "POST", 
+    method: "POST",
+    mode: "cors", 
     headers: { 
       "Accept": "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
     }, 
     body: JSON.stringify({ url })
   })
