@@ -10,7 +10,7 @@
   onMount(() => {
     const qrCard = document.querySelector(".qr-card") as HTMLElement | HTMLElement[]
 
-    // VanillaTilt.init(qrCard)
+    if (window.innerWidth > 1000) VanillaTilt.init(qrCard)
   })
 </script>
 
