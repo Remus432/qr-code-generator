@@ -83,6 +83,7 @@
 
   .url-form {
     display: flex;
+    flex-direction: column;
     position: relative;
     margin-bottom: variables.$spacing-m;
     z-index: 10;
@@ -94,7 +95,7 @@
       font-weight: 500;
       flex: 1;
       padding: 1.2rem;
-      margin-right: 1rem;
+      // margin-right: 1rem;
 
       &.empty {
         position: relative;
@@ -120,6 +121,9 @@
       color: variables.$color-white;
       cursor: pointer;
       display: flex;
+      justify-content: center;
+      padding: variables.$spacing-xs 0;
+      margin-top: variables.$spacing-xs;
 
       &:hover {
         background-color: variables.$color-blue--light-hover;
