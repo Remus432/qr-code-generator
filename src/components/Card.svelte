@@ -10,7 +10,7 @@
   onMount(() => {
     const qrCard = document.querySelector(".qr-card") as HTMLElement | HTMLElement[]
 
-    VanillaTilt.init(qrCard)
+    // VanillaTilt.init(qrCard)
   })
 </script>
 
