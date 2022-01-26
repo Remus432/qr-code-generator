@@ -118,7 +118,11 @@ Every time I made a POST request to my Heroku Node / Express server, it errored 
 
 It was an incredible moment of relief when I saw the live versions of my app's frontend and backend successfully communicating between one another and the app working as expected.
 
+To be frank, this project feels far from finished. But I probably say this about all the projects I work on, so perhaps the takeaway here is to know when to say "stop!" :)
 
+All in all, I still enjoyed a lot the process of building this project and getting to dive in, improve on my existing skills, learn new ones, and continue my growth as a frontend developer.
+
+Thank you for taking the time to check out my project - I appreciate you a lot! :)
  
 * **
 
