@@ -23,6 +23,10 @@ export interface IScrapPageInfo {
   (): Promise<{ screenshot: string, description: string, headline: string, title: string }>
 }
 
+export interface ITruncateText {
+  (text: string): string
+}
+
 export interface IRetrieveInfoObj {
   (url: string): Promise<{ page: PageInfo, img: string, isLoading: boolean }>
 }

@@ -10,6 +10,6 @@ export const retrieveInfoObj: IRetrieveInfoObj = async (url) => {
   return  { 
     page: {...pageInfoObj}, 
     img: qrAPI.img,
-    isLoading: false
+    isLoading: true
   }
 } 

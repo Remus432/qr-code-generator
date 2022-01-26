@@ -1,4 +1,9 @@
-import type { IGenerateCode, ISendURL, IScrapPageInfo } from "./ui.interfaces"
+import type { IGenerateCode, ISendURL, IScrapPageInfo, ITruncateText } from "./ui.interfaces"
+
+export const truncateText: ITruncateText = (text) => {
+  text && (text.length > 150) && `${text.substring(0, 150)} &hellip;`
+  return text
+}
 
 export const scrapPageInfo: IScrapPageInfo = async () => {
   const res = await fetch("https://node-scrapper-qr.herokuapp.com/data", {
@@ -10,12 +15,13 @@ export const scrapPageInfo: IScrapPageInfo = async () => {
       "Access-Control-Allow-Origin": "*"
     }
   })
+
   const info = await res.json()
 
   return {
     screenshot: info[0].screenshot,
-    description: info[0].description,
-    headline: info[0].headline,
+    description: truncateText(info[0].description),
+    headline: truncateText(info[0].headline),
     title: info[0].title
   }
 }

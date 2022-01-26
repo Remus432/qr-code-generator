@@ -18,6 +18,7 @@
       $: infoState = {...infoState, isLoading: true}
 
       $: infoState = await retrieveInfoObj(urlVal)
+      urlVal = ""
 
       setTimeout(() => {
         $: infoState = {...infoState, isLoading: false}
