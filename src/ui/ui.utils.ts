@@ -44,7 +44,7 @@ export const generateCode: IGenerateCode = async (urlVal, httpPattern) => {
   !urlVal.includes("https://") ? httpPattern = "https://" : httpPattern = ""
 
   return {
-    img: `https://api.qrserver.com/v1/create-qr-code/?data=${httpPattern}${urlVal}&size=200x200&bgcolor=2C7DFA&color=fff&format=svg`,
+    img: `https://api.qrserver.com/v1/create-qr-code/?data=${httpPattern}${urlVal}&size=200x200&bgcolor=2C7DFA&color=fff&format=png`,
     url: `${httpPattern}${urlVal}`
   }
 }
