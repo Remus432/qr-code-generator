@@ -101,7 +101,22 @@ Since code readability and maintanability are two of my "dev tenets" that I try 
 
 When I had begun the refactoring process, I gave myself one free ticket to a headache-filled hour - it wasn't so much as trying to refactor a considerable amount of code as it was trying to analyze and focus on the logic side of the process WHILST also coding. That's why it's important to allocate time beforehand for thinking through the logical structure of your app and also before making any changes. Thinking and coding simultaneously do work, but not when the thinking turns into analyzing. That's when you take a step back and ponder on the project, reflecting from all angles.
 
+After quite a bit of hassle, I ended up with a refactored version of the code that I was satisftied with and still allowed for a successful implementation of all the required features - the main App.svelte file was clean, through and through.
 
+With the frontend architecture refactored and all the features working both on the frontend and backend, I decided it's time to make the project go live.
+
+Oh, how wrong I was to hope for a butter smooth finish.
+
+To host the frontend of my project, I used Vercel. No errors were encountered and Vercel quickly created a build using Vite (as its the bundler that I've added into my project) and deployed the site live. 
+
+The big headache came through when I attempted to deploy my app's backend. For that, I went with the most known solution - Heroku. 
+At first, the errors were caused by package.json, which prevented Heroku from starting the server. Fixing this issue only led to the discovery of another issue. This time it was caused by Puppeteer.
+
+Perhaps the most irritating aspect about the Puppeteer errors were that I wasn't even aware they were Puppeteer errors only until later on. 
+
+Every time I made a POST request to my Heroku Node / Express server, it errored out saying it was a CORS issue. I spent more than an hour to no avail trying to fix an issue that, in fact, didn't exist. Only after carefully reviewing the Heroku logs and researching more about Puppeteer operating in the Heroku environment, I discovered it required some extra configuration.
+
+It was an incredible moment of relief when I saw the live versions of my app's frontend and backend successfully communicating between one another and the app working as expected.
 
 
  
