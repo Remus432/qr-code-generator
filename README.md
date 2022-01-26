@@ -1,87 +1,108 @@
-# Frontend Mentor - QR code component
+# Frontend Mentor - QR Code Generator Component 
 
-![Design preview for the QR code component coding challenge](./design/desktop-preview.jpg)
+![Design preview for the Todo app
+ coding challenge](./design/desktop-preview.jpg)
 
-## Welcome! 👋
+## Heya! 👋
 
-Thanks for checking out this front-end coding challenge.
+Today's challenge was building the QR Code Component. Spoiler alert: it became more than just a simple component! :)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+[Live Site](https://qr-code-generator-chi.vercel.app/)
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+## Technologies / Tools Used
 
-## The challenge
+* **Svelte**
+* **Typescript**
+* **SCSS**
+* **QR API**
+* **GSAP**
+* **VanillaTilt**
+* **Express**
+* **MongoDB**
+* **Mongoose**
+* **Puppeteer**
+* **Heroku**
+* **Vite**
 
-Your challenge is to build out this QR code component and get it looking as close to the design as possible.
+* **
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+## Thought Process
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+Nothing prepared me for what was about to unfold with this seemingly simple project :D
 
-## Where to find everything
+Initially, this was supposed to be a straightforward Newbie-level challenge from Frontend Mentor. As far as I can tell, this must've been the simplest and easiest design for a Frontend Mentor challenge. Including the project setup (files, folders, etc), finishing this project required less than 30 minutes.
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+I liked coding it because of the simple, but tasteful aesthetics the design contained.
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+Still, I wasn't satisfied with it.
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+It felt as if there was an opportunity to work on something even more interesting and challenging based on the idea proposed by this design. And the most interesting challenges appear when you wonder. So I did.
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+"What if" - this question, for me, is the Holy Grail of creative inquiry and idea generation.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+The main premise started from this question: "What if you could dynamically generate a QR code and view it inside the card component?". Naturally, the challenge itself didn't account for such a scenario on the basis that the nature of the design was all static (including the QR image they provide for you)
 
-## Building your project
+I was more than intrigued by the possibility of developing a dynamic QR Code generator feature for this small project. After a simple search, I've discovered multiple API solutions that'd fit my needs. Truth be told, one of the most exciting aspects of being a developer for me is when you realize an idea you came up with can become a reality.
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+From this singular idea, a stream of ideas began flowing in my mind - "What other features could I add that'd make the experience even more interesting and useful for a user?"
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+I had to thread carefully so as to not end up developing a SaaS by accident :D
+When I finished brainstorming the possible features and how to implement them, it boiled down to this list:
 
-## Deploying your project
+- On load, show the default QR Code and text from Frontend Mentor
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+- Add a form that'll allow users to submit a website's url to generate a QR Code for it
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+- Dynamically update the QR Code image every time the form is submitted with a correct url
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+- Dynamically update the card's text based on the website's page title and meta description / main headline
 
-## Create a custom `README.md`
+- Show a preview of the website for which they've generated the QR Code
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+With this list, I was ready to begin development.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+## Development
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+From what started of as ~25 minutes project, it ended up into a min full-stack project that spanned across hours and used multiple technologies (some of which I was either completely unfamiliar with or was still learning)
 
-## Submitting your solution
+I decided not to go overboard by using React - the more lightweight alternative for me was using Svelte, which has become my favorite frontend library at the moment. Coupled with Vite, I knew the production speed would be a lot faster (even on my rather slow laptop)
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+Therefore, I initialized a Vite Svelte-TS project using the Git Bash and NPM.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+The implementation of the design itself was straightforward and didn't require much hassle. Neither was difficult to implement the initial feature - generating a QR code based on the website link provided by the user.
 
-## Sharing your solution
+The real challenge began when I realized I'd need a Web Scrapper to get the data from the website provided by the user. After doing some research, I've settled on Puppeteer which basically allows you to run a headless version of the Chrome browser using Chromium. 
 
-There are multiple places you can share your solution:
+The twist was that I had to use Node.js for this.
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+Although I had worked with Node.js in the past, I was still reluctant to actually implement Puppeteer because: 
+ 1. I was completely unfamiliar with it 
+ 2. I wasn't confident in my backend skills with Node and Express
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+But the excitement of working on a creative project had gotten the best of me and I decided to push past my reluctance and doubts.
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+Fortunately, the documentation for Puppeteer was quite comprehensive and it provided me with everything I needed for this project. After I made sure that the Node.js / Express server (running locally at that time) could successfully access any given valid URL and scrap for data and also generate a screenshot of the website, I moved to the next step.
 
-## Got feedback for us?
+For this feature to work, of course I had to connect the fronend of my project with its backend. For simplicity's sake, I decided to just use the Fetch API.
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+This is when I ran into some annoying CORS issues, which I managed to solve after a bit of hassle.
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+Even though I should've foreseen it sooner, only later it dawned on me that I'd need a way to allow the project's frontend to access the newly generated data after the POST request to the Node server was successful. Obviously, one could say that the project had already grown far too much beyond its initial scope. While that may be true, I could never stop halfway through on a project that I had committed to so much.
 
-**Have fun building!** 🚀
+Welcome... 
+MongoDB! (and Mongoose)
+
+Yes, after creating a Node / Express server that runs a headless browser in the background for web scrapping, I went ahead and implemented a MongoDB database and used Mongoose to connect to the database and generate a Schema and Model for the data that'd be generated by Puppeteer.
+
+
+
+
+
+ 
+* **
+
+You can join this and many other challenges on [Frontend Mentor](https://www.frontendmentor.io/)
+
+## My work
+
+You can find more challenges that I've completed [here](https://www.frontendmentor.io/profile/Remus432)
